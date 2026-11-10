@@ -15,6 +15,7 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
+      <a href="#project-manager">Project Manager</a>
       <a href="#education">Education</a>
       <a href="#achievements">Achievements</a>
       <a href="#resume">Résumé</a>
@@ -66,6 +67,52 @@
       <div id="projectGrid" class="card-grid"></div>
     </section>
 
+    <!-- PROJECT MANAGER -->
+    <section id="project-manager" class="container alt">
+      <h2 class="title">My Projects &amp; Activities</h2>
+      <p class="manager-intro">Create and manage academic projects, personal projects, and activities. Records are saved to the database.</p>
+      <form id="projectForm" class="project-form" novalidate>
+        <h3 id="projectFormTitle">Add a project or activity</h3>
+        <input id="projectId" name="id" type="hidden" />
+        <label>Title
+          <input id="projectTitle" name="title" type="text" required maxlength="120" />
+        </label>
+        <label>Description
+          <textarea id="projectDescription" name="description" rows="4" required maxlength="2000"></textarea>
+        </label>
+        <div class="project-form-row">
+          <label>Category
+            <select id="projectCategory" name="category" required>
+              <option value="Academic">Academic</option>
+              <option value="Personal">Personal</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+          <label>Status
+            <select id="projectStatus" name="status" required>
+              <option value="Not Started">Not Started</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </label>
+        </div>
+        <div class="cta">
+          <button id="projectSubmit" class="btn primary" type="submit">Add Project</button>
+          <button id="projectCancel" class="btn" type="button" hidden>Cancel Edit</button>
+        </div>
+        <p id="projectFormStatus" class="project-message" role="status" aria-live="polite"></p>
+      </form>
+      <h3 class="sub">Saved Projects &amp; Activities</h3>
+      <p id="projectListStatus" class="project-message" role="status" aria-live="polite">Loading saved projects…</p>
+      <div id="managedProjectGrid" class="card-grid"></div>
+      <dialog id="projectDetailsDialog" class="project-dialog" aria-labelledby="projectDialogTitle">
+        <h2 id="projectDialogTitle"></h2>
+        <p id="projectDialogMeta" class="dialog-meta"></p>
+        <p id="projectDialogDescription" class="dialog-description"></p>
+        <button id="projectDialogClose" class="btn primary" type="button">Close</button>
+      </dialog>
+    </section>
+
     <!-- EDUCATION -->
     <section id="education" class="container alt">
       <h2 class="title">Education</h2>
@@ -108,9 +155,10 @@
     </section>
   </main>
 
-  <footer class="footer"><p>© <span id="year"></span> Tim. Built with HTML, CSS, JavaScript &amp; Python (Flask).</p></footer>
+  <footer class="footer"><p>© <span id="year"></span> Timothy. Built with HTML, CSS, JavaScript &amp; Python (Flask).</p></footer>
 
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/project-manager.js"></script>
 </body>
 </html>

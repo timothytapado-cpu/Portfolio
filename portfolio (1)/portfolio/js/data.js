@@ -7,11 +7,13 @@ window.PORTFOLIO = {
     // URL of the contact API. Leave "" to fall back to a mailto: link.
     // Local:  "http://localhost:3000/api/contact"
     // Hosted: "https://your-api.onrender.com/api/contact"
-    apiUrl: ""
+    apiUrl: "",
+    // Optional API origin for the project manager when the portfolio and API are hosted separately.
+    projectApiUrl: ""
   },
 
   profile: {
-    name: "Tim",
+    name: "Timothy",
     headline: "BSIT Student · Web & Mobile Application Developer",
     intro: "I design and build responsive web apps and mobile-friendly systems, from clean interfaces to the APIs and databases behind them.",
     photo: "assets/profile.jpg"
@@ -65,8 +67,8 @@ window.PORTFOLIO = {
   ],
 
   education: [
-    { school: "TODO: Your University", degree: "Bachelor of Science in Information Technology", period: "TODO: 2023 – Present", details: "Major coursework: Web Development, Database Systems, Systems Analysis & Design." },
-    { school: "TODO: Your Senior High School", degree: "TODO: Strand", period: "TODO: 2021 – 2023", details: "TODO: honors or activities." }
+    { school: "Infanta National High School", degree: "Junior and Senior High School", period: "", details: "" },
+    { school: "Infanta Central Elementary School", degree: "Primary Education", period: "", details: "" }
   ],
 
   achievements: [
@@ -86,7 +88,7 @@ window.PORTFOLIO = {
 
   contact: [
     { label: "Email", value: "timothytapado@gmail.com", href: "mailto:timothytapado@gmail.com" },
-    { label: "GitHub", value: "github.com/TODO-username", href: "https://github.com/TODO-username" },
+    { label: "GitHub", value: "github.com/Timotimothytapado-cpu", href: "https://github.com/Timotimothytapado-cpu" },
     { label: "LinkedIn", value: "TODO", href: "" }
   ]
 };
