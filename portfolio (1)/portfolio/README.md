@@ -35,7 +35,6 @@ backend/
   models.py                 SQLAlchemy database extension and Project model
   db.py                     Existing contact-message JSON repository
   requirements.txt          Python dependencies
-  .env.example              Example local configuration
   tests/test_app.py         CRUD, persistence, validation, and regression tests
   data/                     SQLite database and contact data (generated, ignored by Git)
 docs/ARCHITECTURE.md        Architecture and requirement traceability
@@ -49,16 +48,15 @@ Install Python 3.10 or later. From the project root, run these commands in Power
 Set-Location .\backend
 py -3 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
-Copy-Item .env.example .env
 ```
 
-If PowerShell's Python launcher is unavailable, create the environment with your installed Python executable instead. The `.env` file is optional for the default local setup; do not commit it.
+If PowerShell's Python launcher is unavailable, create the environment with your installed Python executable instead. The `.env` file is optional for the default local setup. If you need custom configuration, create `backend/.env` yourself; see the setting names below. Do not commit `.env` files.
 
 ## Database configuration
 
 By default, the SQLite database is created at `backend/data/projects.sqlite3`. The directory and database table are created automatically when the Flask application starts. The database is excluded from Git so each installation creates its own persistent local data.
 
-To select another SQLAlchemy database URL, set `DATABASE_URL` in `backend/.env`. For example, to use another local SQLite file under Flask's instance folder:
+To customize the server, create `backend/.env` and add only the settings you need. For example, to use another local SQLite file under Flask's instance folder:
 
 ```dotenv
 DATABASE_URL=sqlite:///projects.sqlite3
@@ -99,7 +97,7 @@ You can also verify the manager manually at `http://localhost:3000`:
 
 ## GitHub preparation
 
-`.gitignore` excludes virtual environments, `.env`, Python caches, generated contact data, SQLite databases, and test coverage output. Keep `backend/.env.example` and `backend/requirements.txt` in the repository; never commit your actual `.env` or generated database.
+`.gitignore` excludes `.env` and `.env.example` files, virtual environments, Python caches, generated contact data, SQLite databases, and test coverage output. Keep `backend/requirements.txt` in the repository; do not commit local environment files or generated databases.
 
 GitHub Pages can host the static portfolio, but it cannot run Flask or SQLite. For the database manager to work on a deployed site, deploy the Flask backend separately, configure the front-end/API origin as described above, and use persistent storage for the SQLite file. The GitHub Pages site can continue to serve the front end; local development is simplest by running the integrated Flask server. The CRUD API is intentionally unauthenticated for this local academic demonstration; add authentication before exposing write operations publicly.
 
